@@ -1,0 +1,5 @@
+by\runets\App.class
+by\runets\binarytree\domain\Node.class
+by\runets\binarytree\service\Traverse.class
+by\runets\binarytree\service\Tree.class
+by\runets\binarytree\service\impl\BinaryTree.class
