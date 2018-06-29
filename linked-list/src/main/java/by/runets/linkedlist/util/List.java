@@ -1,16 +1,15 @@
 package by.runets.linkedlist.util;
 
-import by.runets.linkedlist.domain.Node;
-
-public interface List<T, K> {
+public interface List<T> {
 	boolean addAtHead (T value);
 	
-	boolean add (K index, T value);
+	boolean add (int index, T value);
 	
 	boolean addAtTail (T value);
 	
+	void remove (int index);
 	
-	void remove (K index);
+	void remove ();
 	
-	Node<T> get (T value);
+	void print ();
 }
