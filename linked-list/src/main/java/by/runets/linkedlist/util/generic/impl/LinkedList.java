@@ -1,6 +1,6 @@
-package by.runets.linkedlist.util.impl;
+package by.runets.linkedlist.util.generic.impl;
 
-import by.runets.linkedlist.util.List;
+import by.runets.linkedlist.util.generic.List;
 
 public class LinkedList<T> implements List<T> {
 	private int size;
@@ -14,8 +14,8 @@ public class LinkedList<T> implements List<T> {
 			first = newNode;
 			last = first;
 		} else {
-			newNode.next = first;
 			first.prev = newNode;
+			newNode.next = first;
 		}
 		++size;
 		return true;
@@ -69,8 +69,21 @@ public class LinkedList<T> implements List<T> {
 	
 	@Override
 	public void remove (int index) {
-		if (index >= 0 && index <= size) {
-			
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException("Index: " + index + " bigger then list size: " + size);
+		}
+		int count = 0;
+		Node current = first;
+		while (current != last) {
+			if (count == index) {
+				Node newPrev = current.prev;
+				Node newNext = current.next;
+				
+				current.next.prev = newPrev;
+				current.prev.next = newNext;
+			}
+			current = current.next;
+			count++;
 		}
 	}
 	
@@ -87,6 +100,24 @@ public class LinkedList<T> implements List<T> {
 			current = current.next;
 			System.out.println(current);
 		}
+	}
+	
+	@Override
+	public T get (int index) {
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException("Index: " + index + " bigger then list size: " + size);
+		}
+		
+		int count = 0;
+		Node current = first;
+		while (current != last) {
+			if (count == index) {
+				return (T) current.value;
+			}
+			current = current.next;
+			count++;
+		}
+		return null;
 	}
 	
 	

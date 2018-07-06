@@ -1,27 +1,27 @@
 package by.runets.linkedlist.uril;
 
-import by.runets.linkedlist.util.List;
-import by.runets.linkedlist.util.impl.LinkedList;
+import by.runets.linkedlist.util.singly.List;
+import by.runets.linkedlist.util.singly.Solution;
+import by.runets.linkedlist.util.singly.impl.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
 public class LinkedListTest {
-	private List<Integer> expected;
+	private Solution solution = new Solution();
+	private List<Integer> list;
 	
 	@Before
 	public void setUp () {
-		
-		expected = new LinkedList<>();
-		expected.add(0, 0);
-		expected.add(1, 1);
-		expected.add(2, 2);
-		expected.add(3, 3);
-		expected.add(4, 4);
+		list = new LinkedList();
+		list.addAtHead(1);
+		list.addAtTail(2);
+		list.addAtTail(3);
+		list.addAtTail(4);
 	}
 	
 	@Test
 	public void testAddAtHead () {
-		expected.print();
+		System.out.println(list);
 	}
 	
 	@Test
@@ -31,9 +31,8 @@ public class LinkedListTest {
 	
 	@Test
 	public void testDelete () {
-		expected.remove();
-		expected.remove();
-		expected.remove();
-		expected.print();
+/*
+		solution.getIntersection(node1, node2).print();
+*/
 	}
 }

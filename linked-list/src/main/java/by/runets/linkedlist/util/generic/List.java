@@ -1,4 +1,4 @@
-package by.runets.linkedlist.util;
+package by.runets.linkedlist.util.generic;
 
 public interface List<T> {
 	boolean addAtHead (T value);
@@ -12,4 +12,6 @@ public interface List<T> {
 	void remove ();
 	
 	void print ();
+	
+	T get(int index);
 }
